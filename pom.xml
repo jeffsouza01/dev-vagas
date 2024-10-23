@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.porto</groupId>
 	<artifactId>dev_vagas</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>dev_vagas</name>
 	<description>API Project for Job Vacancy Manager </description>
 	<url/>
