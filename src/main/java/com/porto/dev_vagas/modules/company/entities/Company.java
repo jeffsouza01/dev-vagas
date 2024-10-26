@@ -22,6 +22,7 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
+
     @NotBlank
     // Regex para validação que não tenha espaço
     @Pattern(regexp = "\\S+", message = "O Campo [username] não deve conter espaço")
@@ -30,7 +31,7 @@ public class Company {
     @Email(message = "O Campo [email] deve conter um email válido")
     private String email;
 
-    @Length(min = 3, max = 20)
+    @Length(min = 3)
     private String password;
     private String website;
     private String description;
