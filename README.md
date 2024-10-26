@@ -36,7 +36,7 @@ Crie um índice de navegação entre os tópicos.
 
 No terminal, clone o projeto:
 ```
-cd nome-do-projeto
+cd dev_vagas
 ```
 ```
 mvn clean install
