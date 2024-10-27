@@ -32,7 +32,7 @@ public class Candidate {
     @Email(message = "O Campo [email] deve conter um email válido")
     private String email;
 
-    @Length(min = 3, max = 20)
+    @Length(min = 3)
     private String password;
 
     @Length(max = 150)
