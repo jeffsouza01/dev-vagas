@@ -12,7 +12,7 @@ public class CreateJobUseCase {
     private JobRepository repository;
 
     public Job execute(Job job){
-        return repository.save(job);
+        return this.repository.save(job);
     }
 
 }
