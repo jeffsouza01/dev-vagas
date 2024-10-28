@@ -23,10 +23,12 @@ public class SecurityConfig {
     @Autowired
     private SecurityCandidateFilter securityCandidateFilter;
 
-    private static final String[] SWAGGER_LIST = {
+    private static final String[] WHITE_LIST = {
             "/swagger-ui/**",
             "/v3/**",
-            "/swagger-resources/**"
+            "/swagger-resources/**",
+            "/actuator/**",
+            "/h2-console/**"
     };
 
     @Bean
@@ -37,8 +39,7 @@ public class SecurityConfig {
                     auth.requestMatchers("/candidate/").permitAll()
                             .requestMatchers("/company/").permitAll()
                             .requestMatchers("/auth/**").permitAll()
-                            .requestMatchers(SWAGGER_LIST).permitAll()
-                            .requestMatchers("/h2-console/**").permitAll();
+                            .requestMatchers(WHITE_LIST).permitAll();
 
                     auth.anyRequest().authenticated();
 
