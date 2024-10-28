@@ -11,6 +11,8 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -70,12 +72,13 @@ public class CandidateController {
     @PreAuthorize("hasRole('CANDIDATE')")
     @Tag(name = "Vagas", description = "Informações para candidatos")
     @Operation(summary = "Listagem de vagas disponíveis para o candidato",
-    description = "Função resposável para listar todas as vagas disponiveis, beaseada no filter")
+    description = "Função responsável para listar todas as vagas disponiveis, beaseada no filter")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = {
                     @Content(array = @ArraySchema(schema =  @Schema(implementation = Job.class)))
             })
     })
+    @SecurityRequirement(name = "jwt_auth")
     public ResponseEntity<Object> jobs(@RequestParam String filter){
 
         try {
