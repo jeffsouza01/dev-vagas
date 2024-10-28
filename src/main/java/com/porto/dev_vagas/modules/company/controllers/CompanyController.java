@@ -19,7 +19,7 @@ public class CompanyController {
     @Autowired
     private CreateCompanyUseCase companyUseCase;
 
-    @PostMapping("/create")
+    @PostMapping("/")
     public ResponseEntity<Object> create(@Valid @RequestBody Company company) {
 
         try {
