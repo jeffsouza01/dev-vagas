@@ -44,6 +44,7 @@ public class JobController {
                                          HttpServletRequest request) {
 
         var companyId = request.getAttribute("id_company");
+
 //        job.setIdCompany(UUID.fromString(companyId.toString()));
 
         try {
@@ -54,6 +55,7 @@ public class JobController {
                     .benefits(jobDTO.benefits())
                     .idCompany(UUID.fromString(companyId.toString()))
                     .build();
+
 
             jobUseCase.execute(job);
 

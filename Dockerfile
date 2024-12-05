@@ -1,6 +1,7 @@
 FROM ubuntu:latest as build
 
-RUN apt-get update
+RUN apt-get update --fix-missing
+RUN apt-get upgrade
 RUN apt-get install openjdk-17-jdk -y
 
 COPY . .
