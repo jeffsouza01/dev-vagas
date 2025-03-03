@@ -1,5 +1,6 @@
 package com.porto.dev_vagas.modules.candidate.useCases;
 
+import com.porto.dev_vagas.exceptions.UserNotFoundException;
 import com.porto.dev_vagas.modules.candidate.dtos.ProfileCandidateResponseDTO;
 import com.porto.dev_vagas.modules.candidate.repositories.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,7 @@ public class ProfileCandidateUseCase {
     public ProfileCandidateResponseDTO execute(UUID idCandidate){
 
         var candidate = repository.findById(idCandidate)
-                .orElseThrow(() ->
-                        new UsernameNotFoundException("User not found"));
+                .orElseThrow(UserNotFoundException::new);
 
 
         return ProfileCandidateResponseDTO.builder()
